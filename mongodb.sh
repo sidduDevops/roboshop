@@ -52,4 +52,8 @@ VALIDATE $? "Enable MongoD"
 systemctl start mongod &>> $LOGFILE
 VALIDATE $? "Start MongoD" 
 
-sed -e 's/127.0.0.1/0.0.0.0/g' /etc/mongod.conf
+sed -e 's/127.0.0.1/0.0.0.0/g' /etc/mongod.conf &>> $LOGFILE
+VALIDATE $? "Remote Access to MongoD" 
+
+systemctl restart mongod &>> $LOGFILE 
+VALIDATE $? "ReStart MongoD" 
