@@ -49,7 +49,7 @@ VALIDATE $? "Enabling current version of Node JS"
 dnf install nodejs -y &>> $LOGFILE
 VALIDATE $? "Installing NodeJS" 
 
-useradd roboshop &>> $LOGFILE
+useradd roboshop1 &>> $LOGFILE
 VALIDATE $? "User Roboshop Added" 
 
 mkdir /app &>> $LOGFILE 
