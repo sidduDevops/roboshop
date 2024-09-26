@@ -41,10 +41,10 @@ fi
 
 dnf module disable nodejs -y &>> $LOGFILE
 
-VALIDATE $? "Disable current version of Node JS" 
+VALIDATE $? "Disabling current version of Node JS" 
 
 dnf module enable nodejs:18 -y &>> $LOGFILE
-VALIDATE $? "Enable current version of Node JS"  
+VALIDATE $? "Enabling current version of Node JS"  
 
 dnf install nodejs -y &>> $LOGFILE
 VALIDATE $? "Installing NodeJS" 
@@ -67,7 +67,7 @@ VALIDATE $? "Unzip and Extract the files in Directory App"
 npm install  &>> $LOGFILE 
 VALIDATE $? "Installing Dependencies-NPM files"
 
-cp catalogue.service /etc/systemd/system/catalogue.service &>> $LOGFILE 
+cp /home/centos/roboshop/catalogue.service /etc/systemd/system/catalogue.service &>> $LOGFILE 
 VALIDATE $? "Copying Catalogue file"
 
 systemctl daemon-reload &>> $LOGFILE 
@@ -79,7 +79,7 @@ VALIDATE $? "Enabling the catalogue"
 systemctl start catalogue &>> $LOGFILE 
 VALIDATE $? "Starting the service"
 
-cp mongo.repo /etc/yum.repos.d/mongo.repo &>> $LOGFILE
+cp /home/centos/roboshop/mongo.repo /etc/yum.repos.d/mongo.repo &>> $LOGFILE
 VALIDATE $? "Copying Mongo" 
 
 dnf install mongodb-org-shell -y &>> $LOGFILE
