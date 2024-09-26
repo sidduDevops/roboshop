@@ -49,23 +49,23 @@ VALIDATE $? "Enabling current version of Node JS"
 dnf install nodejs -y &>> $LOGFILE
 VALIDATE $? "Installing NodeJS" 
 
-useradd roboshop1 &>> $LOGFILE
-VALIDATE $? "User Roboshop Added" 
+#useradd roboshop1 &>> $LOGFILE
+#VALIDATE $? "User Roboshop Added" 
 
-mkdir /app &>> $LOGFILE 
-VALIDATE $? "Creating new Directory App"
+#mkdir /app &>> $LOGFILE 
+#VALIDATE $? "Creating new Directory App"
 
-curl -o /tmp/catalogue.zip https://roboshop-builds.s3.amazonaws.com/catalogue.zip &>> $LOGFILE 
-VALIDATE $? "Downloading App files"
+#curl -o /tmp/catalogue.zip https://roboshop-builds.s3.amazonaws.com/catalogue.zip &>> $LOGFILE 
+#VALIDATE $? "Downloading App files"
 
-cd /app  &>> $LOGFILE
-VALIDATE $? "Changing Directory" 
+#cd /app  &>> $LOGFILE
+#VALIDATE $? "Changing Directory" 
 
-unzip /tmp/catalogue.zip &>> $LOGFILE 
-VALIDATE $? "Unzip and Extract the files in Directory App"
+#unzip /tmp/catalogue.zip &>> $LOGFILE 
+#VALIDATE $? "Unzip and Extract the files in Directory App"
 
-npm install  &>> $LOGFILE 
-VALIDATE $? "Installing Dependencies-NPM files"
+#npm install  &>> $LOGFILE 
+#VALIDATE $? "Installing Dependencies-NPM files"
 
 cp /home/centos/roboshop/catalogue.service /etc/systemd/system/catalogue.service &>> $LOGFILE 
 VALIDATE $? "Copying Catalogue file"
