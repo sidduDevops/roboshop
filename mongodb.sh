@@ -23,18 +23,18 @@ else
 
 fi
 
-cp mongo.repo /etc/yum.repos.d/mongo.repo >>& $LOGFILE
+cp mongo.repo /etc/yum.repos.d/mongo.repo &>> $LOGFILE
 
-VALIDATE #? "Copied Mongo" 
+VALIDATE $? "Copied Mongo" 
 
 dnf install mongodb-org -y >>& $LOGFILE
 
-VALIDATE #? "Install Mongo" 
+VALIDATE $? "Install Mongo" 
 
 systemctl enable mongod >>& $LOGFILE
-VALIDATE #? "Enable MongoD" 
+VALIDATE $? "Enable MongoD" 
 
 systemctl start mongod >>& $LOGFILE
-VALIDATE #? "Start MongoD" 
+VALIDATE $? "Start MongoD" 
 
 sed -e 's/127.0.0.1/0.0.0.0/g' /etc/mongod.conf
