@@ -42,14 +42,14 @@ cp mongo.repo /etc/yum.repos.d/mongo.repo &>> $LOGFILE
 
 VALIDATE $? "Copied Mongo" 
 
-dnf install mongodb-org -y >>& $LOGFILE
+dnf install mongodb-org -y &>> $LOGFILE
 
 VALIDATE $? "Install Mongo" 
 
-systemctl enable mongod >>& $LOGFILE
+systemctl enable mongod &>> $LOGFILE
 VALIDATE $? "Enable MongoD" 
 
-systemctl start mongod >>& $LOGFILE
+systemctl start mongod &>> $LOGFILE
 VALIDATE $? "Start MongoD" 
 
 sed -e 's/127.0.0.1/0.0.0.0/g' /etc/mongod.conf
